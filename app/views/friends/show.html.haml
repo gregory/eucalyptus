@@ -1,0 +1,10 @@
+%h3 Your Friend feed
+%ul
+- @ranked_commenters.each do |k,v|
+  %li
+    = v[:count]
+    %img{:src => facebook_picture(k)}
+    = link_to v[:name], facebook_object_url(k)
+    
+= debug @feed
+

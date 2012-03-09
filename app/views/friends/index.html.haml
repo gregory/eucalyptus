@@ -1,0 +1,26 @@
+= content_for(:stylesheet) {stylesheet_link_tag 'home'}
+=title(t('.your_friends'))
+.row
+  %ul
+    -@friends.each do |friend|
+      %li.span1
+        .profile-picture
+          %a{:href => friend_url(friend['id']), :rel => 'tooltip', :'data-original-title' => friend['name']}
+            %img{:src => facebook_picture(friend['id']), :alt => friend['name']}
+
+.row
+  .pagination
+    %ul
+      %li
+        %a{:href => '#'} Prev
+      %li.active
+        %a{:href => '#'} 1
+      %li
+        %a{:href => '#'} 2
+      %li
+        %a{:href => '#'} Next
+:javascript
+$(function(){
+    $('.profile-picture a').tooltip('title')
+});
+    
