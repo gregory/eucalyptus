@@ -1,9 +1,0 @@
-development:
-  app_id: 336761343027499
-  secret_key: 8d5bade7d20264fdd5c557c60cffe0d8
-test:
-  app_id: REPLACE WITH YOUR APP ID
-  secret_key: REPLACE WITH YOUR SECRET KEY
-production:
-  app_id: 336761343027499
-  secret_key: 8d5bade7d20264fdd5c557c60cffe0d8
