@@ -9,7 +9,7 @@ class Commentable
       @type = type
     end
     class<<self
-      def object(uid, graph, type, args={}, options={})
+      def object(graph, uid, type, args={}, options={})
         only_comments = COMMENTABLE_STRATEGY.none? {|t| t == type} ? {} : {:fields => 'comments'}
         graph.get_connections(uid, type.to_s, args.merge(only_comments), options)
       end
@@ -41,6 +41,6 @@ class Commentable
     end
   private
     def object(type, args={}, options={})
-      Commentable::object(uid, graph,type, args, options)
+      Commentable::object(graph, uid,type, args, options)
     end
 end

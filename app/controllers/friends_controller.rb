@@ -8,18 +8,18 @@ class FriendsController < FacebookController
     end
 
     def show
+     @friend_info = friend.info
+     @ranked_commenters = friend.ranked_commenters
      @feed = friend.feed_content
-      @ranked_commenters = friend.ranked_commenters_without_batch
     end
   
   protected
     def friend
       @friend ||= current_user.friend(params[:id])
     end
+    
     def friends
-      return @friends if @friends.present?
-      friends = current_user.friends
-      friends = friends.keep_if {|f| f['name'].downcase =~ /#{params['name'].downcase}/} if params['name'].present?
-      @friends = friends.first(10)
+      @friends ||= current_user.friends || []
+      @friends = friends.keep_if {|f| f['name'].downcase =~ /#{params['name'].downcase}/} if params['name'].present?
     end
 end

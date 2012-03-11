@@ -1,10 +1,26 @@
-%h3 Your Friend feed
-%ul
-- @ranked_commenters.each do |k,v|
-  %li
-    = v[:count]
-    %img{:src => facebook_picture(k)}
-    = link_to v[:name], facebook_object_url(k)
-    
-= debug @feed
+= content_for(:more_head) do
+  = javascript_include_tag 'bootstrap-tooltip'
+.container-fluid
+  .row-fluid
+    .span2
+      %h4 Your commenters
+      %ul.picture-list
+        - @ranked_commenters.each do |k,v|
+          %li.profile-picture
+            %a{:href => facebook_object_url(k), :rel => 'tooltip', :'data-original-title' => "#{v[:name]}, #{v[:count]} comments"}
+              %img{:src => friend_picture(k), :alt => v[:name]}
+            = "#{v[:count]} comments"
+    .span10
+      .row
+        .span2
+          .thumbnail
+            %a{:href => @friend_info['link']}
+              %img{:src => friend_picture(@friend_info['id'], 'large')}
+        .span4
+          %h3
+            %a{:href => @friend_info['link']}
+              = @friend_info['name']    
+      .row
+        %h3 The wall feed ( I ll clean this up for next release ;)
+        = debug @feed
 
