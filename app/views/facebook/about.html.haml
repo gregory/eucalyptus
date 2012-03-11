@@ -1,3 +1,51 @@
+= title(t('.about_this_project'))
 %p
-  About Eucalyptus? just go 
-  %a{:href => 'http://fr.wikipedia.org/wiki/Eucalyptus'} wikipedia! 
+  %h3 About Eucalyptus? just go 
+  %p
+    %a{:href => 'http://fr.wikipedia.org/wiki/Eucalyptus'} wikipedia! 
+  
+  %h3 About the design choices? 
+  %ul
+    %li
+      %h4 Compute ranks form other sources at disposal
+      %p
+        I decided to load and compute the commenter's ranks from 
+        %em links, checkins, statuses 
+        instead of only the wall 
+        %em feed,
+        %br
+        in order to improve my ranking results 
+    %li
+      %h4 No activerecord
+      %p
+        No use of it as soon as the app only query form facebook.
+        %br
+        We could improve the app by storing user(id, name) and ranked_user(uid, fid, rank)
+    %li
+      %h4 Design Pattern Strategy
+      %p
+        I choosed to use a DP Strategy to handle the comments on differents type of commentable objects.
+    %li
+      %h4 Use of the batch method from the koala gem
+      %p
+        In my first refactoring i've used the batch method provided by the koala gem,
+        %br
+        which improved the app's perfs.
+  %h3 How app could be further improved?
+  %ul
+    %li
+      %h4 github! :)
+      %p
+        %a{:href => 'https://github.com/hypercut/eucalyptus', :target => '_blank'} Just have a look if you like rails... and facebook
+    %li
+      %h4 FQL akka Facebook Query Language
+      %p
+        I m convinced we could improve the speed of the queries by picking the right fields when querying facebook.
+    %li
+      %h4 Front end app
+      %p
+        Despite Rails rocks, we don't need it in this case... a simple front end app using backbone
+        %br
+        and sinatra for the backend part (the app's business logic, validations)
+    
+        

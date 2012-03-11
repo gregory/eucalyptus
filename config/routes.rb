@@ -1,6 +1,6 @@
 FbBase::Application.routes.draw do
   resources :friends, :only => [:index, :show]
-  resources :sessions, :only => [:new]
+  match '/signin' => "sessions#new", :as => :signin
   root :to => 'friends#index'
   match '/:name' => "facebook#page"
 end

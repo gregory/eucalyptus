@@ -10,7 +10,7 @@ class FriendsController < FacebookController
     def show
      @friend_info = friend.info
      @ranked_commenters = friend.ranked_commenters
-     @feed = friend.feed_content
+     @feed = friend.feed_comments.flatten
     end
   
   protected

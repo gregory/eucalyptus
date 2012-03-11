@@ -10,7 +10,7 @@ class Commentable
     end
     class<<self
       def object(graph, uid, type, args={}, options={})
-        only_comments = COMMENTABLE_STRATEGY.none? {|t| t == type} ? {} : {:fields => 'comments'}
+        only_comments = COMMENTABLE_STRATEGY.none? {|t| t == type} ? {} : {:fields => 'comments', :limit => LIMIT_FEED}
         graph.get_connections(uid, type.to_s, args.merge(only_comments), options)
       end
     end

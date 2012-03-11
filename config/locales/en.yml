@@ -4,3 +4,6 @@ en:
     index: 
       your_friends: Your friends
   hello: Hello world
+  facebook: 
+    about: 
+      about_this_project: "\"About this project\""

@@ -21,7 +21,7 @@ class FacebookController < ApplicationController
 
     def require_login
       unless logged_in?
-        redirect_to :new_session
+        redirect_to :signin
       end
     end
 
@@ -32,6 +32,6 @@ class FacebookController < ApplicationController
       end
       rescue Errno::ECONNRESET,Errno::ECONNABORTED,Errno::ETIMEDOUT
         flash[notice] = 'A problem occured please ensure you are connected'
-        redirect_to :new_session
+        redirect_to :signin
     end
 end
