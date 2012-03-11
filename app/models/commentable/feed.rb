@@ -1,7 +1,7 @@
 class Commentable::Feed < Commentable
     def comments
       commented_feeds.collect do |f| 
-        (f['comments']['data'].count > f['comments']['count']) ? f['comments']['data'] : graph.get_object(f['id'])['comments']['data']
+        ((f['comments']['data'].try(:count) || 0) > f['comments']['count']) ? f['comments']['data'] : graph.get_object(f['id'])['comments']['data']
       end
     end
   protected
