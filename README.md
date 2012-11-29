@@ -1,4 +1,4 @@
 #EUCALYPTUS
 
 Just small app to play with the opengraph through the koala gem
-You can find try it at [eucalyptusapp.heroku.com](http://eucalyptusapp.heroku.com/ "Eucalyptus app")
+You can find try it @ [eucalyptus.gregory.io](http:/eucalyptus.gregory.io "Eucalyptus app")
